@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/sahayata/static/css/main.a112f354.chunk.css",
-    "main.js": "/sahayata/static/js/main.76855710.chunk.js",
-    "main.js.map": "/sahayata/static/js/main.76855710.chunk.js.map",
-    "runtime-main.js": "/sahayata/static/js/runtime-main.5a88ce0e.js",
-    "runtime-main.js.map": "/sahayata/static/js/runtime-main.5a88ce0e.js.map",
-    "static/js/2.7f6a66eb.chunk.js": "/sahayata/static/js/2.7f6a66eb.chunk.js",
-    "static/js/2.7f6a66eb.chunk.js.map": "/sahayata/static/js/2.7f6a66eb.chunk.js.map",
-    "index.html": "/sahayata/index.html",
-    "static/css/main.a112f354.chunk.css.map": "/sahayata/static/css/main.a112f354.chunk.css.map",
-    "static/js/2.7f6a66eb.chunk.js.LICENSE.txt": "/sahayata/static/js/2.7f6a66eb.chunk.js.LICENSE.txt",
-    "static/media/MainLogo.e8cd788d.PNG": "/sahayata/static/media/MainLogo.e8cd788d.PNG"
+    "main.css": "/static/css/main.a112f354.chunk.css",
+    "main.js": "/static/js/main.4b79b2d4.chunk.js",
+    "main.js.map": "/static/js/main.4b79b2d4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.aa046f10.js",
+    "runtime-main.js.map": "/static/js/runtime-main.aa046f10.js.map",
+    "static/js/2.7f6a66eb.chunk.js": "/static/js/2.7f6a66eb.chunk.js",
+    "static/js/2.7f6a66eb.chunk.js.map": "/static/js/2.7f6a66eb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.a112f354.chunk.css.map": "/static/css/main.a112f354.chunk.css.map",
+    "static/js/2.7f6a66eb.chunk.js.LICENSE.txt": "/static/js/2.7f6a66eb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5a88ce0e.js",
+    "static/js/runtime-main.aa046f10.js",
     "static/js/2.7f6a66eb.chunk.js",
     "static/css/main.a112f354.chunk.css",
-    "static/js/main.76855710.chunk.js"
+    "static/js/main.4b79b2d4.chunk.js"
   ]
 }
