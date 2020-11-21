@@ -25,7 +25,7 @@ function App(){
                 All right reserved
             </footer>
         </div>
-      </BrowserRouter>
+    </BrowserRouter>
   );
 }
 export default App;
