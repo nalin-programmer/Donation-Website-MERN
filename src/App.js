@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
-import Logo from "./MainLogo.PNG"
 function App(){
   return(
     <BrowserRouter>
@@ -19,9 +18,8 @@ function App(){
                 </div>
             </header>
             <main>
-            <Route path='/product/:id' component={ProductScreen}/>
             <Route path='/' component={HomeScreen} exact/>
-                  
+            <Route path='/product/:id' component={ProductScreen}/>
             </main>
             <footer className="row center">
                 All right reserved
