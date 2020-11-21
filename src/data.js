@@ -11,7 +11,7 @@ const data ={
             brand: "NCERT",
             rating: 4.5,
             numReviews: 10,
-            description: 'high qualitly books',
+            description: 'high qualitly books'
         },
         {
 
@@ -21,10 +21,10 @@ const data ={
             image: '/images/product-2.jpg',
             price: 160,
             countInStock: 0,
-            brand: "NatrajT",
+            brand: "Natraj",
             rating: 4,
             numReviews: 13,
-            description: 'high qualitly pencil',
+            description: 'high qualitly pencil'
         },
         {
 
@@ -37,7 +37,7 @@ const data ={
             brand: "Domes",
             rating: 5,
             numReviews: 50,
-            description: 'high qualitly pencil box',
+            description: 'high qualitly pencil box'
         },
         {
 
