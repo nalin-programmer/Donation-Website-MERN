@@ -63,6 +63,9 @@ a:hover{
   color: #18B7BE;
 }
 
+input,
+textarea,
+select,
 button{
   padding: 1rem;
   border-radius: 0.5rem;
@@ -75,6 +78,13 @@ button{
   cursor: pointer;
 }
 
+button{
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+input:hover,
+textarea:hover,
+select:hover,
 button:hover{
   border: 0.1rem #404040 solid;
 }
@@ -109,6 +119,15 @@ a.brand{
   color: #F9F7F0;
   font-size: 3rem;
   font-weight: bold;
+}
+
+.badge{
+  background-color:#18B7BE;
+  color:#F9F7F0;
+  border-radius: 50%;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.4rem;
+  margin-left: 0.2rem;
 }
 
 .row{
