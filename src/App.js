@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
+import AboutUsScreen from './screens/AboutUsScreen';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
@@ -25,6 +26,7 @@ function App(){
                 </div>
             </header>
             <main>
+            <Route path="/aboutus" component={AboutUsScreen}/>
             <Route path='/cart/:id?' component={CartScreen}/>
             <Route path='/' component={HomeScreen} exact/>
             <Route path='/product/:id' component={ProductScreen}/>

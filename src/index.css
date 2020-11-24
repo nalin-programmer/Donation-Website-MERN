@@ -223,3 +223,31 @@ img.large{
   color: #a02020;
   background-color: #ffe0e0;
 }
+
+/* About Us */
+.aboutUs{
+  width:100%;
+  border-radius: 1rem;
+}
+.aboutUstitle{
+  background-image: url('./screens/Photos/Background.jpg');
+}
+.aboutUsLeftImg{
+  background-color: #F9F7F0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.aboutUsRightImg{
+  background-color: #D3D3D3;
+}
+
+.aboutUs img{
+  margin: 10% 20%;
+  width: 60%;
+  border-radius: 0rem;
+}
+
+.aboutUsText{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
