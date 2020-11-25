@@ -17,7 +17,7 @@ function App(){
                     <Link className="brand" to="/">Sahayata</Link>
                 </div>
                 <div>
-                    <Link to="/cart">Wishlist
+                    <Link to="/wishlist">Wishlist
                     {cartItems.length > 0 && (
                         <span className="badge">{cartItems.length}</span>
                     )}</Link>
@@ -27,7 +27,7 @@ function App(){
             </header>
             <main>
             <Route path="/aboutus" component={AboutUsScreen}/>
-            <Route path='/cart/:id?' component={CartScreen}/>
+            <Route path='/wishlist/:id?' component={CartScreen}/>
             <Route path='/' component={HomeScreen} exact/>
             <Route path='/product/:id' component={ProductScreen}/>
             </main>
