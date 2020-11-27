@@ -1,8 +1,21 @@
+import bcrypt from 'bcryptjs';
 const data ={
+    users:[
+        {
+            name:'Nalin',
+            email:'nalinagrawal123@gmail.com',
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: true,
+        },
+        {
+            name:'Max',
+            email:'nalinagrawal333@gmail.com',
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: false,
+        },
+    ],
     products: [
         {
-
-            _id: '1',
             name: "Text Books",
             catagory: 'books',
             image: '/images/product-1.png',
@@ -11,11 +24,9 @@ const data ={
             address: "eafsgbgbf rgtggsfgv",
             rating: 4.5,
             numReviews: 10,
-            description: 'high qualitly books'
+            description: "high qualitly books",
         },
         {
-
-            _id: '2',
             name: "Natraj Pencil",
             catagory: 'Pencil',
             image: '/images/product-2.jpg',
@@ -24,11 +35,9 @@ const data ={
             address: "eafsgbgbf rgtggsfgv",
             rating: 4,
             numReviews: 13,
-            description: 'high qualitly pencil'
+            description: 'high qualitly pencil',
         },
         {
-
-            _id: '3',
             name: "Domes Pencil box",
             catagory: 'Pencil box',
             image: '/images/product-3.jpg',
@@ -37,11 +46,9 @@ const data ={
             address: "eafsgbgbf rgtggsfgv",
             rating: 5,
             numReviews: 50,
-            description: 'high qualitly pencil box'
+            description: 'high qualitly pencil box',
         },
         {
-
-            _id: '4',
             name: "Paras Appu Pens",
             catagory: 'Pens',
             image: '/images/product-4.jpg',
@@ -53,8 +60,6 @@ const data ={
             description: 'Low Quality Pens',
         },
         {
-
-            _id: '5',
             name: "R. D. Sharama Text Books",
             catagory: 'books',
             image: '/images/product-1.png',
@@ -66,8 +71,6 @@ const data ={
             description: 'maths reference notebook',
         },
         {
-
-            _id: '6',
             name: "Apsara Pencil",
             catagory: 'Pencil',
             image: '/images/product-2.jpg',
