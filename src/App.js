@@ -5,6 +5,7 @@ import AboutUsScreen from './screens/AboutUsScreen';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import SigninScreen from './screens/SigninScreen';
 function App(){
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart;
@@ -28,6 +29,7 @@ function App(){
             <main>
             <Route path="/aboutus" component={AboutUsScreen}/>
             <Route path='/wishlist/:id?' component={CartScreen}/>
+            <Route path='/signin' component={SigninScreen}/>
             <Route path='/' component={HomeScreen} exact/>
             <Route path='/product/:id' component={ProductScreen}/>
             </main>

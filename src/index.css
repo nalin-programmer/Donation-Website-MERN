@@ -260,3 +260,29 @@ img.large{
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
+/* Form */
+.form{
+  max-width: 40rem;
+  margin: 0 auto;
+  
+}
+
+.signin{
+  margin: 2rem auto !important;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 0.1rem;
+  border-color: #178CA4;
+}
+
+.form > div{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.form label{
+  margin: 1rem 0;
+  display: block;
+}
