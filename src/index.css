@@ -31,12 +31,17 @@ body{
 header{
   grid-area: header;
   background-color: #072A40;
+  /* fixing navbar */
+  position: fixed;
+  width: 100%;
+  padding-bottom: 1rem;
 }
 
 main{
   grid-area: main;
   padding: 1rem;
 }
+
 
 footer{
   grid-area: footer;
@@ -284,5 +289,26 @@ img.large{
 
 .form label{
   margin: 1rem 0;
+  display: block;
+}
+
+/* Dropdown */
+.dropdown{
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content{
+  position: absolute;
+  display: none;
+  right: 0;
+  min-width: 12rem;
+  padding: 1rem;
+  z-index: 1;
+  background-color: #072A40;
+  margin: 0;
+  margin-top: 0.4rem;
+  border-radius: 0.5rem;
+}
+.dropdown:hover .dropdown-content{
   display: block;
 }
