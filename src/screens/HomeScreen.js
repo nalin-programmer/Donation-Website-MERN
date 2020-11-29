@@ -19,7 +19,7 @@ export default function HomeScreen() {
             <MessageBox varient="danger">{error}</MessageBox>
             ):(
             <div className="row center">
-                {console.log(products)}
+                {/* {console.log(products)} */}
                 {products.map((product) =>(
                     <Product key={product._id} product={product}></Product>
                 ))}
