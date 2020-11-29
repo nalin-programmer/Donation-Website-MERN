@@ -36,10 +36,6 @@ app.use((err,req,res,next) => {
     res.status(500).send({message: err.message});
 });
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('build'));
-}
-
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{
     console.log(`Serve at http://localhost:${port}`);
