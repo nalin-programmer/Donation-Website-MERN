@@ -28,6 +28,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "install-rapp":"npm run build",
+    "install-client": "npm install",
+    "heroku-postbuild":"npm run install-client && npm run install-rapp",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
