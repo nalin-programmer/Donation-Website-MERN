@@ -14,15 +14,15 @@ app.use(express.urlencoded({extended: true}));
 // const dbpassword = nalin123;
 // const db = mongo "mongodb+srv://cluster0.cjemo.mongodb.net/<dbname>" --username nalin;
 
-mongoose.connect('mongodb+srv://nalin:nalin123@cluster0.ergvr.mongodb.net/sahayata?retryWrites=true&w=majority',
-    {useNewUrlParser: true, 
-    useUnifiedTopology: true,
-    useCreateIndex: true,});
-// mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/sahayata',{
-//     useNewUrlParser: true,
+// mongoose.connect('mongodb+srv://nalin:nalin123@cluster0.ergvr.mongodb.net/sahayata?retryWrites=true&w=majority',
+//     {useNewUrlParser: true, 
 //     useUnifiedTopology: true,
-//     useCreateIndex: true,
-// });
+//     useCreateIndex: true,});
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/sahayata',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+});
 
 app.use('/api/users', userRouter);
 
