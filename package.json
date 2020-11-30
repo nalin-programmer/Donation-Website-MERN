@@ -1,6 +1,6 @@
 {
   "name": "sahayata",
-  "proxy": "http://127.0.0.1:5000",
+  "proxy": "http://sahayata-mern-stack.herokuapp.com",
   "type": "module",
   "version": "0.1.0",
   "private": true,

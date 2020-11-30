@@ -7,7 +7,7 @@ const productRouter = express.Router();
 
 productRouter.get('/' ,expressAsyncHandler(async(req, res) => {
     const products = await Product.find({});
-    // console.log("aaa" +products);
+    console.log(products);
     res.send(products);
 }));
 
