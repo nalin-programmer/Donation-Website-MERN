@@ -4,6 +4,8 @@ import userRouter from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
 import dotenv from 'dotenv';
 
+const cors = require("cors");
+app.use(cors());
 dotenv.config();
 
 const app = express();
