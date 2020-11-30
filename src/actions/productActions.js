@@ -12,7 +12,7 @@ export const listProducts = () => async (dispatch) =>{
             dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data});
         }else{
             console.log(data);
-            dispatch({ type: PRODUCT_LIST_FAIL,payload: "array not taken"});
+            dispatch({ type: PRODUCT_LIST_FAIL,payload: data});
         }
         
     }catch(error){
