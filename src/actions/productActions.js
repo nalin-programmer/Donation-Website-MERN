@@ -6,7 +6,7 @@ export const listProducts = () => async (dispatch) =>{
         type: PRODUCT_LIST_REQUEST,
     });
     try{
-        const  {data}  = await Axios.get('https://sahayata-mern-stack.herokuapp.com/api/products');
+        const  {data}  = await Axios.get('/api/products');
         // console.log("8888NALIN" + data);
         if(Array.isArray(data)){
             dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data});

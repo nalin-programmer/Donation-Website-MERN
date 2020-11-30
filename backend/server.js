@@ -3,15 +3,15 @@ import mongoose from 'mongoose';
 import userRouter from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
 import dotenv from 'dotenv';
+import cors from 'cors';
 
-const cors = require("cors");
-app.use(cors());
+
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
+app.use(cors());
 // const dbusername = nalin;
 // const dbpassword = nalin123;
 // const db = mongo "mongodb+srv://cluster0.cjemo.mongodb.net/<dbname>" --username nalin;
