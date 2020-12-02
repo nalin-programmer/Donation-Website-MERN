@@ -212,6 +212,9 @@ img.large{
 }
 
 /* Alert */
+.loading{
+  display: block !important;
+}
 .success{
   color: #20A020;
   font-weight: bold;
