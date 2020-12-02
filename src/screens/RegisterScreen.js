@@ -38,7 +38,7 @@ export default function RegisterScreen(props) {
         <div>
             <form className="form signin" onSubmit={submitHandler}>
                 <div>
-                    <center><h1>Register</h1></center>
+                    <center><h1>Create Account</h1></center>
                 </div>
                 {loading && <LoadingBox></LoadingBox>}
                 {error && <MessageBox varient="danger">{error}</MessageBox>}
@@ -51,8 +51,8 @@ export default function RegisterScreen(props) {
                     <input type="email" id="email" placeholder="Enter email" required onChange={(e) => setEmail(e.target.value)}></input>
                 </div>
                 <div>
-                    <label htmlFor="address">Name</label>
-                    <input type="text" id="name" placeholder="Enter Address" required onChange={(e) => setAddress(e.target.value)}></input>
+                    <label htmlFor="address">Address</label>
+                    <input type="text" id="address" placeholder="Enter Address" required onChange={(e) => setAddress(e.target.value)}></input>
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
@@ -69,7 +69,7 @@ export default function RegisterScreen(props) {
                 <div>
                     <label/>
                     <div>
-                        Already have an account? <Link to="/signin">Sign In</Link>
+                        Already have an account? <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
                     </div>
                 </div>
             </form>
