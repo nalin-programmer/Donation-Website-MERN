@@ -22,9 +22,6 @@ const orderSchema = new mongoose.Schema(
             pinCode: {type: Number, required:true },
             country: {type: String, required:true },
         },
-        items: {
-            items: {type: Number, required:true },
-        },
         user: {
             type: mongoose.Schema.Types.ObjectId, 
             ref: 'User',
