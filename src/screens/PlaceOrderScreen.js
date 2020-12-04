@@ -1,16 +1,30 @@
+import { request } from 'express';
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { createOrder } from '../actions/orderActions';
 import CheckoutSteps from '../components/CheckoutSteps'
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { ORDER_CREATE_RESET } from '../constants/orderConstants';
 
 export default function PlaceOrderScreen(props) {
     const cart = useSelector((state )=> state.cart);
     if(!cart.agreeMethod){
         props.history.push('/confirm');
     }
+    const orderCreate = useSelector((state) => state.orderCreate);
+    const {loading, success,error,order} = orderCreate;
+    const dispatch = useDispatch();
     const placeOrderHandler = () =>{
-
-    }
+        dispatch(createOrder({...cart, orderItems: cart.cartItems}));
+    };
+    useEffect(() => {
+        if(success){
+            props.history.push(`/request/${order._id}`);
+            dispatch({type: ORDER_CREATE_RESET});
+        }
+    },[dispatch,success,order,props.history]);
     return (
         <div>
             <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
@@ -70,6 +84,8 @@ export default function PlaceOrderScreen(props) {
                                 <button type="button" onClick={placeOrderHandler} className="primary block"
                                 disabled={cart.cartItems.length === 0}>Request</button>
                             </li>
+                            {loading && <LoadingBox></LoadingBox>}
+                            {error && <MessageBox varient="danger">{error}</MessageBox>}
                         </ul>
                     </div>
                 </div>

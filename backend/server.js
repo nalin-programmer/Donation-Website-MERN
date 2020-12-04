@@ -31,7 +31,7 @@ app.use('/api/users', userRouter);
 
 app.use('/api/products',productRouter);
 
-app.use('/api/orders',orderRouter);
+app.use('/api/requests',orderRouter);
 
 app.get('/', (req,res)=>{
     res.send('Server is ready');
