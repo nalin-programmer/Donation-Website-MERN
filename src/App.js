@@ -55,7 +55,7 @@ function App(){
                 <Route path='/wishlist/:id?' component={CartScreen}/>
                 <Route path='/signin' component={SigninScreen}/>
                 <Route path='/register' component={RegisterScreen}/>
-                <Route path='/requesting' component={ShippingAddressScreen}/>
+                <Route path='/requesting' component={ShippingAddressScreen}/> 
                 <Route path='/placeorder' component={PlaceOrderScreen}/>
                 <Route path='/confirm' component={ConfirmationScreen}/>
                 <Route path='/' component={HomeScreen} exact/>
