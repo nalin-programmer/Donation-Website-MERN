@@ -8,7 +8,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         const {userSignin: { userInfo}} = getState();
         const {data} = await Axios.post('https://sahayata-mern-stack.herokuapp.com/api/requests',order,{
             headers: {
-                Authorization: `Barer ${userInfo.token}`,
+                Authorization: `Bearer ${userInfo.token}`,
             },
         });
         dispatch({type: ORDER_CREATE_SUCCESS, payload: data.order});
