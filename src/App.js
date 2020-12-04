@@ -6,6 +6,7 @@ import AboutUsScreen from './screens/AboutUsScreen';
 import CartScreen from './screens/CartScreen';
 import ConfirmationScreen from './screens/ConfirmationScreen';
 import HomeScreen from './screens/HomeScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductScreen from './screens/ProductScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
@@ -55,6 +56,7 @@ function App(){
                 <Route path='/signin' component={SigninScreen}/>
                 <Route path='/register' component={RegisterScreen}/>
                 <Route path='/requesting' component={ShippingAddressScreen}/>
+                <Route path='/placeorder' component={PlaceOrderScreen}/>
                 <Route path='/confirm' component={ConfirmationScreen}/>
                 <Route path='/' component={HomeScreen} exact/>
                 <Route path='/product/:id' component={ProductScreen}/>
