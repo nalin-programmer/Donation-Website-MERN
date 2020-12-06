@@ -24,9 +24,10 @@ export const createOrder = (order) => async (dispatch, getState) => {
 
 export const detailsOrder = (orderId) => async (dispatch, getState) =>{
     dispatch({ type: ORDER_DETAILS_REQUEST, payload: orderId});
-    const {userSignin: {userInfo},} = getState();
+    const {userSignin: {userInfo}} = getState();
+    console.log("blablabla");
     try{
-        const {data} = await Axios.get(`/api/orders/${orderId}`,{
+        const {data} = await Axios.get(`https://sahayata-mern-stack.herokuapp.com/api/requests/${orderId}`,{
             headers: { Authorization: `Bearer ${userInfo.token}`}
         });
         dispatch( { type: ORDER_DETAILS_SUCCESS, payload: data });

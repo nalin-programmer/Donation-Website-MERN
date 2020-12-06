@@ -20,8 +20,9 @@ export default function PlaceOrderScreen(props) {
     };
     useEffect(() => {
         if(success){
-            props.history.push(`/request/${order._id}`);
             dispatch({type: ORDER_CREATE_RESET});
+            props.history.push(`/request/${order._id}`);
+            // props.history.push('/aboutus');
         }
     },[dispatch,success,order,props.history]);
     return (
