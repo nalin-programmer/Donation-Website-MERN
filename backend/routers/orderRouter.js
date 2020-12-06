@@ -29,5 +29,17 @@ orderRouter.get('/:id', isAuth, expressAsyncHandler(async (req, res) =>{
     }else{
         res.status(404).send({message: 'Order Not Found'});
     }
-}))
+}));
+
+orderRouter.put('/:id/requested',isAuth,expressAsyncHandler(async(req, res) => {
+    const order = await Order.findById(req.params.id);
+    if(order){
+        order.isRequested = true;
+        const updatedOrder = await order.save();
+        res.send({message: 'Requested', order: updatedOrder});
+    }else{
+        res.status(404).send({message: 'Request Not Found'});
+    }
+    
+}));
 export default orderRouter;

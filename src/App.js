@@ -53,15 +53,15 @@ function App(){
                 </header>
                 <main>
                 <Route path="/aboutus" component={AboutUsScreen}/>
-                <Route path='/request/:id' components={OrderScreen}/>
-                <Route path='/wishlist/:id?' component={CartScreen}/>
                 <Route path='/signin' component={SigninScreen}/>
                 <Route path='/register' component={RegisterScreen}/>
                 <Route path='/requesting' component={ShippingAddressScreen}/> 
                 <Route path='/placeorder' component={PlaceOrderScreen}/>
                 <Route path='/confirm' component={ConfirmationScreen}/>
                 <Route path='/' component={HomeScreen} exact/>
+                <Route path='/wishlist/:id?' component={CartScreen}/>
                 <Route path='/product/:id' component={ProductScreen}/>
+                <Route path='/request/:id' components={OrderScreen}/>
                 </main>
                 <footer className="row center">
                     All right reserved

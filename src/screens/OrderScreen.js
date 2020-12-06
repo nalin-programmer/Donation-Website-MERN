@@ -15,6 +15,7 @@ export default function OrderScreen(props) {
         console.log("OrderScreen UseEffect")
         dispatch(detailsOrder(orderId));
     },[dispatch,orderId]);
+    
     return loading ? (
         <LoadingBox></LoadingBox>
     ) : error ? (

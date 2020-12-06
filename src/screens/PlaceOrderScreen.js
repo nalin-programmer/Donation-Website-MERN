@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { createOrder } from '../actions/orderActions';
+import { createOrder, payOrder } from '../actions/orderActions';
 import CheckoutSteps from '../components/CheckoutSteps'
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -13,16 +13,18 @@ export default function PlaceOrderScreen(props) {
         props.history.push('/confirm');
     }
     const orderCreate = useSelector((state) => state.orderCreate);
+    // const { error: errorPay} = 
     const {loading, success,error,order} = orderCreate;
+
     const dispatch = useDispatch();
     const placeOrderHandler = () =>{
         dispatch(createOrder({...cart, orderItems: cart.cartItems}));
+        dispatch(payOrder(order));
     };
     useEffect(() => {
         if(success){
+            // props.history.push(`/request/${order._id}`);
             dispatch({type: ORDER_CREATE_RESET});
-            props.history.push(`/request/${order._id}`);
-            // props.history.push('/aboutus');
         }
     },[dispatch,success,order,props.history]);
     return (
@@ -39,6 +41,8 @@ export default function PlaceOrderScreen(props) {
                                     <strong>Address:</strong>{cart.shippingAddress.address},
                                     {cart.shippingAddress.city},{cart.shippingAddress.pinCode},{cart.shippingAddress.country}
                                 </p>
+                                {/* {order.isDelivered ? <MessageBox varient="success">Delivered at {order.disliveredAt}</MessageBox> :
+                                <MessageBox varient="danger">Not Delivered</MessageBox>} */}
                             </div>
                         </li>
                         <li>
