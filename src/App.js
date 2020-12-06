@@ -54,17 +54,17 @@ function App(){
                     </div>
                 </header>
                 <main>
-                <Route path="/aboutus" component={AboutUsScreen}/>
-                <Route path='/signin' component={SigninScreen}/>
-                <Route path='/register' component={RegisterScreen}/>
-                <Route path='/requesting' component={ShippingAddressScreen}/> 
-                <Route path='/placeorder' component={PlaceOrderScreen}/>
-                <Route path='/confirm' component={ConfirmationScreen}/>
-                <Route path='/requesthistory' component={OrderHistoryScreens}/>
+                <Route path='/requesthistory' component={OrderHistoryScreens} exact/>
+                <Route path="/aboutus" component={AboutUsScreen} exact/>
+                <Route path='/signin' component={SigninScreen} exact/>
+                <Route path='/register' component={RegisterScreen} exact/>
+                <Route path='/requesting' component={ShippingAddressScreen} exact/> 
+                <Route path='/placeorder' component={PlaceOrderScreen} exact/>
                 <Route path='/' component={HomeScreen} exact/>
+                <Route path='/confirm' component={ConfirmationScreen} exact/>
+                <Route path='/request/:id' component={OrderScreen} />
                 <Route path='/wishlist/:id?' component={CartScreen}/>
                 <Route path='/product/:id' component={ProductScreen}/>
-                <Route path='/request/:id' components={OrderScreen}/>
                 </main>
                 <footer className="row center">
                     All right reserved

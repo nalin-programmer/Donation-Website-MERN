@@ -34,7 +34,7 @@ export default function OrderHistoryScreens(props) {
                                 <td>{order.isDelivered ? order.deletedAt.substring(0,10) : 'No'}</td>
                                 <td>
                                     <button type="button" className="small" 
-                                    onClick = {() => {props.history.push(`/request/${orders._id}`)}}>Details</button>
+                                    onClick = {() => {props.history.push(`/request/${order._id}`)}}>Details</button>
                                 </td>
                             </tr>
                         ))}

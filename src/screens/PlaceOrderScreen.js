@@ -13,7 +13,6 @@ export default function PlaceOrderScreen(props) {
         props.history.push('/confirm');
     }
     const orderCreate = useSelector((state) => state.orderCreate);
-    // const { error: errorPay} = 
     const {loading, success,error,order} = orderCreate;
 
     const dispatch = useDispatch();
@@ -23,7 +22,7 @@ export default function PlaceOrderScreen(props) {
     };
     useEffect(() => {
         if(success){
-            props.history.push('/');
+            props.history.push(`/request/${order._id}`);
             dispatch({type: ORDER_CREATE_RESET});
         }
     },[dispatch,success,order,props.history]);
@@ -41,8 +40,6 @@ export default function PlaceOrderScreen(props) {
                                     <strong>Address:</strong>{cart.shippingAddress.address},
                                     {cart.shippingAddress.city},{cart.shippingAddress.pinCode},{cart.shippingAddress.country}
                                 </p>
-                                {/* {order.isDelivered ? <MessageBox varient="success">Delivered at {order.disliveredAt}</MessageBox> :
-                                <MessageBox varient="danger">Not Delivered</MessageBox>} */}
                             </div>
                         </li>
                         <li>
