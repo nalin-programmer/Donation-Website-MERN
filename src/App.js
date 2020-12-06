@@ -6,6 +6,7 @@ import AboutUsScreen from './screens/AboutUsScreen';
 import CartScreen from './screens/CartScreen';
 import ConfirmationScreen from './screens/ConfirmationScreen';
 import HomeScreen from './screens/HomeScreen';
+import OrderHistoryScreens from './screens/OrderHistoryScreens';
 import OrderScreen from './screens/OrderScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductScreen from './screens/ProductScreen';
@@ -41,7 +42,8 @@ function App(){
                             <div className="dropdown">
                                 <Link to="#">{userInfo.name + " "}<i className="fa fa-caret-down"></i></Link>
                                 <ul className="dropdown-content">
-                                    <Link to="#signout" onClick={signoutHandler}>Sign Out</Link>
+                                    <li><Link to='/requesthistory'>Req. History</Link></li>
+                                    <li><Link to="#signout" onClick={signoutHandler}>Sign Out</Link></li>
                                 </ul>
                             </div>
                             ) : (
@@ -58,6 +60,7 @@ function App(){
                 <Route path='/requesting' component={ShippingAddressScreen}/> 
                 <Route path='/placeorder' component={PlaceOrderScreen}/>
                 <Route path='/confirm' component={ConfirmationScreen}/>
+                <Route path='/requesthistory' component={OrderHistoryScreens}/>
                 <Route path='/' component={HomeScreen} exact/>
                 <Route path='/wishlist/:id?' component={CartScreen}/>
                 <Route path='/product/:id' component={ProductScreen}/>
