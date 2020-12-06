@@ -13,11 +13,12 @@ export default function OrderScreen(props) {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(detailsOrder(orderId));
-    },[dispatch,success,orderId]);
+    },[dispatch,orderId]);
     return loading ? (<LoadingBox></LoadingBox>): 
     error ? (<MessageBox variant="danger">{error}</MessageBox>): 
     (
         <div>
+            <h1>Request {order._id}</h1>
             <div className="row top">
                 <div className="col-2">
                     <ul>
@@ -25,9 +26,9 @@ export default function OrderScreen(props) {
                             <div className="card card-body">
                                 <h2>Your information</h2>
                                 <p>
-                                    <strong>Name:</strong> {cart.shippingAddress.fullName} <br/>
-                                    <strong>Address:</strong>{cart.shippingAddress.address},
-                                    {cart.shippingAddress.city},{cart.shippingAddress.pinCode},{cart.shippingAddress.country}
+                                    <strong>Name:</strong> {order.shippingAddress.fullName} <br/>
+                                    <strong>Address:</strong>{order.shippingAddress.address},
+                                    {order.shippingAddress.city},{order.shippingAddress.pinCode},{order.shippingAddress.country}
                                 </p>
                             </div>
                         </li>
@@ -36,7 +37,7 @@ export default function OrderScreen(props) {
                                 <h2>Requested Items</h2>
                                 <ul>
                                 {
-                                    cart.cartItems.map((item) => (
+                                    order.orderItems.map((item) => (
                                     <li key={item.product}>
                                         <div class= "row">
                                         <div>
@@ -67,15 +68,9 @@ export default function OrderScreen(props) {
                             <li>
                                 <div class="row">
                                     <div>Items </div>
-                                    <div>{cart.cartItems.reduce((a,c) => a+c.qty, 0)}</div>
+                                    <div>{order.orderItems.reduce((a,c) => a+c.qty, 0)}</div>
                                 </div>
                             </li>
-                            <li>
-                                <button type="button" onClick={placeOrderHandler} className="primary block"
-                                disabled={cart.cartItems.length === 0}>Request</button>
-                            </li>
-                            {loading && <LoadingBox></LoadingBox>}
-                            {error && <MessageBox varient="danger">{error}</MessageBox>}
                         </ul>
                     </div>
                 </div>
