@@ -296,6 +296,13 @@ img.large{
   border-color: #178CA4;
 }
 
+.profile{
+    margin: 2rem auto !important;
+    border-style: solid;
+    border-radius: 1rem;
+    border-width: 0.1rem;
+    border-color: #178CA4;
+}
 .form > div{
   display: flex;
   flex-direction: column;

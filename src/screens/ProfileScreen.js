@@ -18,13 +18,14 @@ export default function ProfileScreen() {
     }
     return (
         <div>
-            <form className="form" onSubmit={submitHandler}>
+            <form className="form profile" onSubmit={submitHandler}>
                 {
                     loading ? <LoadingBox></LoadingBox>
                     :
                     error ? <MessageBox variant="danger">{error}</MessageBox>
                     :
                     <>
+                        <h1><center><h1>User Profile</h1></center></h1>
                         <div>
                             <label htmlFor="name">Name</label>
                             <input id="name" type="text" placeholder="Enter Name" value={user.name}></input>
@@ -39,11 +40,11 @@ export default function ProfileScreen() {
                         </div>
                         <div>
                             <label htmlFor="password">Password</label>
-                            <input id="password" type="password" placeholder="Enter Password" value={user.password}></input>
+                            <input id="password" type="password" placeholder="Enter Password"></input>
                         </div>
                         <div>
                             <label htmlFor="confirmPassword">Confirm Password</label>
-                            <input id="confirmPassword" type="password" placeholder="Re-enter Password" value={user.confirmPassword}></input>
+                            <input id="confirmPassword" type="password" placeholder="Re-enter Password" ></input>
                         </div>
                         <div>
                             <label/>
