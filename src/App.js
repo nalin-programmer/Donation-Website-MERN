@@ -10,6 +10,7 @@ import OrderHistoryScreens from './screens/OrderHistoryScreens';
 import OrderScreen from './screens/OrderScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductScreen from './screens/ProductScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
@@ -42,6 +43,7 @@ function App(){
                             <div className="dropdown">
                                 <Link to="#">{userInfo.name + " "}<i className="fa fa-caret-down"></i></Link>
                                 <ul className="dropdown-content">
+                                    <li><Link to='/profile'>User Profile</Link></li>
                                     <li><Link to='/requesthistory'>Req. History</Link></li>
                                     <li><Link to="#signout" onClick={signoutHandler}>Sign Out</Link></li>
                                 </ul>
@@ -60,6 +62,7 @@ function App(){
                 <Route path='/register' component={RegisterScreen} exact/>
                 <Route path='/requesting' component={ShippingAddressScreen} exact/> 
                 <Route path='/placeorder' component={PlaceOrderScreen} exact/>
+                <Route path="/profile" component={ProfileScreen}/>
                 <Route path='/' component={HomeScreen} exact/>
                 <Route path='/confirm' component={ConfirmationScreen} exact/>
                 <Route path='/request/:id' component={OrderScreen} />
