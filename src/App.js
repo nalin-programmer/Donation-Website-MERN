@@ -66,7 +66,7 @@ function App(){
                                     <ul className="dropdown-content">
                                         <li><Link to ="/dashboard">Dashboard</Link></li>
                                         <li><Link to ="/productlist">Donation</Link></li>
-                                        <li><Link to ="/orderlist">Requests</Link></li>
+                                        <li><Link to ="/requestlist">Requests</Link></li>
                                         <li><Link to ="/userlist">Users</Link></li>
                                     </ul>
 

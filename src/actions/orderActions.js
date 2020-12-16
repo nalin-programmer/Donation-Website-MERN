@@ -92,3 +92,21 @@ try {
     dispatch({ type: ORDER_LIST_FAIL, payload: message });
 }
 };
+export const deleteOrder = (orderId) => async (dispatch, getState) => {
+    dispatch({ type: ORDER_DELETE_REQUEST, payload: orderId });
+    const {
+    userSignin: { userInfo },
+    } = getState();
+    try {
+    const { data } = Axios.delete(`https://sahayata-mern-stack.herokuapp.com/api/requests/${orderId}`, {
+        headers: { Authorization: `Bearer ${userInfo.token}` },
+    });
+    dispatch({ type: ORDER_DELETE_SUCCESS, payload: data });
+    } catch (error) {
+    const message =
+        error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: ORDER_DELETE_FAIL, payload: message });
+    }
+};

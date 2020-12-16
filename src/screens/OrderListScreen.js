@@ -39,7 +39,7 @@ return (
                 <td>{order._id}</td>
                 <td>{order.user.name}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
-                <td>{order.address}</td>
+                <td>{order.shippingAddress.address}</td>
                 <td>
                 {order.isDelivered
                     ? order.deliveredAt.substring(0, 10)
