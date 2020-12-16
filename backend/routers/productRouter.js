@@ -28,7 +28,7 @@ productRouter.get('/:id', expressAsyncHandler( async(req, res) => {
 
 productRouter.post('/',isAuth, expressAsyncHandler(async(req,res) => {
     const product = new Product({
-        name:'sample name' + Date.now().toString(),
+        name:'sample name',
         image:'/images/product-2.jpg',
         address: 'address',
         catagory: 'sample catagory',
