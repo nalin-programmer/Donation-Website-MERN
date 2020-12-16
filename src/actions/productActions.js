@@ -61,7 +61,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     userSignin: { userInfo },
     } = getState();
     try {
-    const { data } = await Axios.put(`'https://sahayata-mern-stack.herokuapp.com/api/products/${product._id}`, product, {
+    const { data } = await Axios.put(`https://sahayata-mern-stack.herokuapp.com/api/products/${product._id}`, product, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data });

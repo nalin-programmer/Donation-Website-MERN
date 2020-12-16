@@ -43,11 +43,7 @@ productRouter.post('/',isAuth, expressAsyncHandler(async(req,res) => {
 } ))
 export default productRouter;
 
-productRouter.put(
-    '/:id',
-    isAuth,
-    isAdmin,
-    expressAsyncHandler(async (req, res) => {
+productRouter.put('/:id',isAuth,expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById(productId);
     if (product) {
