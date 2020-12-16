@@ -11,6 +11,7 @@ import HomeScreen from './screens/HomeScreen';
 import OrderHistoryScreens from './screens/OrderHistoryScreens';
 import OrderScreen from './screens/OrderScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductScreen from './screens/ProductScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -87,6 +88,7 @@ function App(){
                 <Route path='/request/:id' component={OrderScreen} />
                 <Route path='/wishlist/:id?' component={CartScreen}/>
                 <Route path='/product/:id' component={ProductScreen} exact/>
+                <Route path="/product/:id/edit" component={ProductEditScreen} exact/>
                 </main>
                 <footer className="row center">
                     All right reserved
