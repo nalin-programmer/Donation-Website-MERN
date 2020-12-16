@@ -25,6 +25,12 @@ orderRouter.post('/',
 })
 );
 
+orderRouter.get('/',isAuth,expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({}).populate('user', 'name');
+    res.send(orders);
+    })
+);
+
 orderRouter.get('/:id', isAuth, expressAsyncHandler(async (req, res) =>{
     const order = await Order.findById(req.params.id);
     if(order){
