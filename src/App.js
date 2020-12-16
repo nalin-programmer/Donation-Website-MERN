@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { signout } from './actions/userActions';
+import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import AboutUsScreen from './screens/AboutUsScreen';
 import CartScreen from './screens/CartScreen';
@@ -10,6 +11,7 @@ import HomeScreen from './screens/HomeScreen';
 import OrderHistoryScreens from './screens/OrderHistoryScreens';
 import OrderScreen from './screens/OrderScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ProductListScreen from './screens/ProductListScreen';
 import ProductScreen from './screens/ProductScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -53,7 +55,22 @@ function App(){
                                 <Link to="/signin">Sign In</Link>
                             )
                         }
-                        
+                        {
+                            userInfo && (
+                                <div className="dropdown">
+                                    <Link to="#admin">
+                                        Donate <i className="fa fa-caret-down"></i>
+                                    </Link>
+                                    <ul className="dropdown-content">
+                                        <li><Link to ="/dashboard">Dashboard</Link></li>
+                                        <li><Link to ="/productlist">Donation</Link></li>
+                                        <li><Link to ="/orderlist">Requests</Link></li>
+                                        <li><Link to ="/userlist">Users</Link></li>
+                                    </ul>
+
+                                </div>
+                            )
+                        }
                     </div>
                 </header>
                 <main>
@@ -64,6 +81,7 @@ function App(){
                 <Route path='/requesting' component={ShippingAddressScreen} exact/> 
                 <Route path='/placeorder' component={PlaceOrderScreen} exact/>
                 <PrivateRoute path="/profile" component={ProfileScreen}/>
+                <AdminRoute path="/productlist" component={ProductListScreen}/>
                 <Route path='/' component={HomeScreen} exact/>
                 <Route path='/confirm' component={ConfirmationScreen} exact/>
                 <Route path='/request/:id' component={OrderScreen} />
