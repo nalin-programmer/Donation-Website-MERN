@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import cors from 'cors';
 import orderRouter from "./routers/orderRouter.js";
-import uploadRouter from './routers/uploadRouter.js';
+import uploadRouter from './routers/UploadRouter.js';
 
 dotenv.config();
 
