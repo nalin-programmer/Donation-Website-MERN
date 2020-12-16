@@ -86,7 +86,7 @@ function App(){
                 <Route path='/confirm' component={ConfirmationScreen} exact/>
                 <Route path='/request/:id' component={OrderScreen} />
                 <Route path='/wishlist/:id?' component={CartScreen}/>
-                <Route path='/product/:id' component={ProductScreen}/>
+                <Route path='/product/:id' component={ProductScreen} exact/>
                 </main>
                 <footer className="row center">
                     All right reserved

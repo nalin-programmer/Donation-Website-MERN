@@ -30,7 +30,7 @@ productRouter.post('/',isAuth, expressAsyncHandler(async(req,res) => {
     const product = new Product({
         name:'sample name',
         image:'/image/p1.jbg',
-        address: '',
+        address: 'address',
         catagory: 'sample catagory',
         brand: 'sample brand',
         countInStock: 0,
