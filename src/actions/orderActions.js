@@ -76,13 +76,13 @@ export const listOrderMine = () => async ( dispatch,getState) => {
     }
 }
 
-export const listOrders = () => async (dispatch, getState) => {
+export const listOrders = ({ seller = '' }) => async (dispatch, getState) => {
     dispatch({ type: ORDER_LIST_REQUEST });
     const {
     userSignin: { userInfo },
 } = getState();
 try {
-    const { data } = await Axios.get('https://sahayata-mern-stack.herokuapp.com/api/requests', {
+    const { data } = await Axios.get(`https://sahayata-mern-stack.herokuapp.com/api/requests?seller=${seller}`, {
     headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     // console.log(data);

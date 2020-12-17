@@ -6,18 +6,27 @@ import MessageBox from '../components/MessageBox';
 import {  USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
 
 export default function ProfileScreen() {
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [sellerName, setSellerName] = useState('');
+    const [sellerLogo, setSellerLogo] = useState('');
+    const [sellerDescription, setSellerDescription] = useState('');
+
     const userSignin = useSelector((state) => state.userSignin);
     const {userInfo} = userSignin;
+
     const userDetails = useSelector((state) => state.userDetails);
     const {loading,error,user}=userDetails;
+
     const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
     const {success: successUpdate, error: errorUpdate, loading: loadingUpdate} = userUpdateProfile;
+
     const dispatch = useDispatch();
+
     useEffect(() =>{
         if(!user){
             dispatch({type: USER_UPDATE_PROFILE_RESET});
@@ -27,8 +36,13 @@ export default function ProfileScreen() {
             setEmail(user.email);
             setAddress(user.address);
         }
-        
+        if (user.seller) {
+            setSellerName(user.seller.name);
+            setSellerLogo(user.seller.logo);
+            setSellerDescription(user.seller.description);
+        }
     },[dispatch,userInfo._id,user]);
+
     const submitHandler = (e) => {
         e.preventDefault();
         if(password !== confirmPassword){
@@ -38,11 +52,15 @@ export default function ProfileScreen() {
                 userId: user._id,
                 name,
                 email,
-                address,
-                password
-            }));
+                password,
+                sellerName,
+                sellerLogo,
+                sellerDescription,
+                })
+            );
         }
     }
+
     return (
         <div>
             <form className="form profile" onSubmit={submitHandler}>
@@ -76,6 +94,41 @@ export default function ProfileScreen() {
                             <label htmlFor="confirmPassword">Confirm Password</label>
                             <input id="confirmPassword" type="password" placeholder="Re-enter Password" onChange={(e) => setConfirmPassword(e.target.value)}></input>
                         </div>
+                        {user.isSeller && (
+                            <>
+                                <h2>Seller</h2>
+                                <div>
+                                <label htmlFor="sellerName">Seller Name</label>
+                                <input
+                                    id="sellerName"
+                                    type="text"
+                                    placeholder="Enter Seller Name"
+                                    value={sellerName}
+                                    onChange={(e) => setSellerName(e.target.value)}
+                                ></input>
+                                </div>
+                                <div>
+                                <label htmlFor="sellerLogo">Seller Logo</label>
+                                <input
+                                    id="sellerLogo"
+                                    type="text"
+                                    placeholder="Enter Seller Logo"
+                                    value={sellerLogo}
+                                    onChange={(e) => setSellerLogo(e.target.value)}
+                                ></input>
+                                </div>
+                                <div>
+                                <label htmlFor="sellerDescription">Seller Description</label>
+                                <input
+                                    id="sellerDescription"
+                                    type="text"
+                                    placeholder="Enter Seller Description"
+                                    value={sellerDescription}
+                                    onChange={(e) => setSellerDescription(e.target.value)}
+                                ></input>
+                                </div>
+                            </>
+                        )}
                         <div>
                             <label/>
                             <button className="primary" type="submit">Update</button>

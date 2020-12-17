@@ -19,6 +19,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
 import OrderListScreen from './screens/OrderListScreen';
+import SellerRoute from './components/SellerRoute';
 function App(){
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart;
@@ -57,11 +58,26 @@ function App(){
                                 <Link to="/signin">Sign In</Link>
                             )
                         }
+                        {userInfo && userInfo.isSeller && (
+                        <div className="dropdown">
+                            <Link to="#admin">
+                            Donate <i className="fa fa-caret-down"></i>
+                            </Link>
+                            <ul className="dropdown-content">
+                            <li>
+                                <Link to="/productlist/donar">Donation</Link>
+                            </li>
+                            <li>
+                                <Link to="/requestlist/donar">Requests</Link>
+                            </li>
+                            </ul>
+                        </div>
+                        )}
                         {
                             userInfo && userInfo.isAdmin && (
                                 <div className="dropdown">
                                     <Link to="#admin">
-                                        Donate <i className="fa fa-caret-down"></i>
+                                        Admin <i className="fa fa-caret-down"></i>
                                     </Link>
                                     <ul className="dropdown-content">
                                         <li><Link to ="/dashboard">Dashboard</Link></li>
@@ -83,8 +99,10 @@ function App(){
                 <Route path='/requesting' component={ShippingAddressScreen} exact/> 
                 <Route path='/placeorder' component={PlaceOrderScreen} exact/>
                 <PrivateRoute path="/profile" component={ProfileScreen}/>
-                <AdminRoute path="/productlist" component={ProductListScreen}/>
-                <AdminRoute path="/requestlist"component={OrderListScreen}></AdminRoute>
+                <AdminRoute path="/productlist" component={ProductListScreen} exact/>
+                <AdminRoute path="/requestlist"component={OrderListScreen} exact></AdminRoute>
+                <SellerRoute path="/productlist/donar" component={ProductListScreen}></SellerRoute>
+                <SellerRoute path="/orderlist/donar" component={OrderListScreen}></SellerRoute>
                 <Route path='/' component={HomeScreen} exact/>
                 <Route path='/confirm' component={ConfirmationScreen} exact/>
                 <Route path='/request/:id' component={OrderScreen} />

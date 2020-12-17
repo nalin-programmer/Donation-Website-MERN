@@ -6,12 +6,12 @@ import { PRODUCT_DETAILS_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DELETE_REQUEST,PRODUCT_DELETE_FAIL,PRODUCT_DELETE_SUCCESS,
     PRODUCT_REVIEW_CREATE_REQUEST,PRODUCT_REVIEW_CREATE_SUCCESS,PRODUCT_REVIEW_CREATE_FAIL,} from "../constants/productConstants"
 
-export const listProducts = () => async (dispatch) =>{
+export const listProducts = ({ seller = '' }) => async (dispatch) =>{
     dispatch({
         type: PRODUCT_LIST_REQUEST,
     });
     try{
-        const  {data}  = await Axios.get('https://sahayata-mern-stack.herokuapp.com/api/products');
+        const  {data}  = await Axios.get(`https://sahayata-mern-stack.herokuapp.com/api/products?seller=${seller}`);
         // console.log("8888NALIN" + data);
         if(Array.isArray(data)){
             dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data});
