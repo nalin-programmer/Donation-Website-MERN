@@ -20,6 +20,8 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import SellerRoute from './components/SellerRoute';
+import UserListScreen from './screens/UserListScreen';
+import UserEditScreen from './screens/UserEditScreen';
 function App(){
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart;
@@ -43,21 +45,6 @@ function App(){
                         {cartItems.length > 0 && (
                             <span className="badge">{cartItems.length}</span>
                         )}</Link>
-                        
-                        {
-                            userInfo ? (
-                            <div className="dropdown">
-                                <Link to="#">{userInfo.name + " "}<i className="fa fa-caret-down"></i></Link>
-                                <ul className="dropdown-content">
-                                    <li><Link to='/profile'>User Profile</Link></li>
-                                    <li><Link to='/requesthistory'>Req. History</Link></li>
-                                    <li><Link to="#signout" onClick={signoutHandler}>Sign Out</Link></li>
-                                </ul>
-                            </div>
-                            ) : (
-                                <Link to="/signin">Sign In</Link>
-                            )
-                        }
                         {userInfo && userInfo.isSeller && (
                         <div className="dropdown">
                             <Link to="#admin">
@@ -89,6 +76,20 @@ function App(){
                                 </div>
                             )
                         }
+                        {
+                            userInfo ? (
+                            <div className="dropdown">
+                                <Link to="#">{userInfo.name + " "}<i className="fa fa-caret-down"></i></Link>
+                                <ul className="dropdown-content">
+                                    <li><Link to='/profile'>User Profile</Link></li>
+                                    <li><Link to='/requesthistory'>Req. History</Link></li>
+                                    <li><Link to="#signout" onClick={signoutHandler}>Sign Out</Link></li>
+                                </ul>
+                            </div>
+                            ) : (
+                                <Link to="/signin">Sign In</Link>
+                            )
+                        }
                     </div>
                 </header>
                 <main>
@@ -99,10 +100,12 @@ function App(){
                 <Route path='/requesting' component={ShippingAddressScreen} exact/> 
                 <Route path='/placeorder' component={PlaceOrderScreen} exact/>
                 <PrivateRoute path="/profile" component={ProfileScreen}/>
+                <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
                 <AdminRoute path="/productlist" component={ProductListScreen} exact/>
                 <AdminRoute path="/requestlist"component={OrderListScreen} exact></AdminRoute>
-                <SellerRoute path="/productlist/donar" component={ProductListScreen}></SellerRoute>
-                <SellerRoute path="/orderlist/donar" component={OrderListScreen}></SellerRoute>
+                <AdminRoute path="/user/:id/edit"component={UserEditScreen}></AdminRoute>
+                <SellerRoute path="/productlist/donar" component={ProductListScreen} exact></SellerRoute>
+                <SellerRoute path="/requestlist/donar" component={OrderListScreen} exact></SellerRoute>
                 <Route path='/' component={HomeScreen} exact/>
                 <Route path='/confirm' component={ConfirmationScreen} exact/>
                 <Route path='/request/:id' component={OrderScreen} />
