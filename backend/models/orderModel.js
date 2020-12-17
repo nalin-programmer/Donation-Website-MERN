@@ -27,6 +27,7 @@ const orderSchema = new mongoose.Schema(
             ref: 'User',
             required: true,
         },
+        seller: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
         isRequested: {type: Boolean, default: false,},
         isDelivered: {type: Boolean, default: false,},
         deliveredAt: {type: Date},
