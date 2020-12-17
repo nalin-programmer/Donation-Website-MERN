@@ -12,6 +12,7 @@ export default function ProfileScreen() {
     const [address, setAddress] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
     const [sellerName, setSellerName] = useState('');
     const [sellerLogo, setSellerLogo] = useState('');
     const [sellerDescription, setSellerDescription] = useState('');
@@ -36,11 +37,13 @@ export default function ProfileScreen() {
             setEmail(user.email);
             setAddress(user.address);
         }
+
         if (user.seller) {
             setSellerName(user.seller.name);
             setSellerLogo(user.seller.logo);
             setSellerDescription(user.seller.description);
         }
+
     },[dispatch,userInfo._id,user]);
 
     const submitHandler = (e) => {
@@ -96,33 +99,33 @@ export default function ProfileScreen() {
                         </div>
                         {user.isSeller && (
                             <>
-                                <h2>Seller</h2>
+                                <h2>Donar</h2>
                                 <div>
-                                <label htmlFor="sellerName">Seller Name</label>
+                                <label htmlFor="sellerName">Donar Name</label>
                                 <input
                                     id="sellerName"
                                     type="text"
-                                    placeholder="Enter Seller Name"
+                                    placeholder="Enter Donar Name"
                                     value={sellerName}
                                     onChange={(e) => setSellerName(e.target.value)}
                                 ></input>
                                 </div>
                                 <div>
-                                <label htmlFor="sellerLogo">Seller Logo</label>
+                                <label htmlFor="sellerLogo">Donar Logo</label>
                                 <input
                                     id="sellerLogo"
                                     type="text"
-                                    placeholder="Enter Seller Logo"
+                                    placeholder="Enter Donar Logo"
                                     value={sellerLogo}
                                     onChange={(e) => setSellerLogo(e.target.value)}
                                 ></input>
                                 </div>
                                 <div>
-                                <label htmlFor="sellerDescription">Seller Description</label>
+                                <label htmlFor="sellerDescription">Donar Description</label>
                                 <input
                                     id="sellerDescription"
                                     type="text"
-                                    placeholder="Enter Seller Description"
+                                    placeholder="Enter Donar Description"
                                     value={sellerDescription}
                                     onChange={(e) => setSellerDescription(e.target.value)}
                                 ></input>

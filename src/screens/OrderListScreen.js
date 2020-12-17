@@ -7,7 +7,7 @@ import { ORDER_DELETE_RESET } from '../constants/orderConstants';
 
 export default function OrderListScreen(props) {
     const orderList = useSelector((state) => state.orderList);
-    
+
     const { loading, error, orders } = orderList;
     const sellerMode = props.match.path.indexOf('/donar') >= 0;
 
@@ -23,6 +23,7 @@ export default function OrderListScreen(props) {
         dispatch({ type: ORDER_DELETE_RESET });
         dispatch(listOrders({ seller: sellerMode ? userInfo._id : '' }));
     }, [dispatch, sellerMode, successDelete, userInfo._id]);
+    
     const deleteHandler = (order) => {
         if (window.confirm('Are you sure to delete?')) {
             dispatch(deleteOrder(order._id));

@@ -7,10 +7,11 @@ import { PRODUCT_CREATE_RESET, PRODUCT_DELETE_RESET } from '../constants/product
 export default function ProductListScreen(props) {
 
     const sellerMode = props.match.path.indexOf('/donar') >= 0;
+
     const productList =useSelector(state => state.productList);
     const {loading, error, products} = productList;
-    const productCreate = useSelector(state => state.productCreate);
 
+    const productCreate = useSelector(state => state.productCreate);
     const {
         loading: loadingCreate,
         error: errorCreate,
@@ -38,8 +39,8 @@ export default function ProductListScreen(props) {
         if (successDelete) {
             dispatch({ type: PRODUCT_DELETE_RESET });
         }
-       dispatch(listProducts({ seller: sellerMode ? userInfo._id : '' }));
-  }, [createdProduct,dispatch,props.history,sellerMode,successCreate,successDelete,userInfo._id,]);
+        dispatch(listProducts({ seller: sellerMode ? userInfo._id : '' }));
+    }, [createdProduct,dispatch,props.history,sellerMode,successCreate,successDelete,userInfo._id,]);
 
     const deleteHandler = (product) => {
         if (window.confirm('Are you sure to delete?')) {
