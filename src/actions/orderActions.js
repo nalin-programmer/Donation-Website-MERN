@@ -37,6 +37,7 @@ export const detailsOrder = (orderId) => async (dispatch, getState) =>{
         const {data} = await Axios.get(`https://sahayata-mern-stack.herokuapp.com/api/requests/${orderId}`,{
             headers: { Authorization: `Bearer ${userInfo.token}` },
         });
+        // console.log(data);
         dispatch( { type: ORDER_DETAILS_SUCCESS, payload: data });
     }catch(error){
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
@@ -84,7 +85,7 @@ try {
     const { data } = await Axios.get('https://sahayata-mern-stack.herokuapp.com/api/requests', {
     headers: { Authorization: `Bearer ${userInfo.token}` },
     });
-    console.log(data);
+    // console.log(data);
     dispatch({ type: ORDER_LIST_SUCCESS, payload: data });
 } catch (error) {
     const message =
@@ -118,14 +119,11 @@ export const deliverOrder = (orderId) => async (dispatch, getState) => {
     userSignin: { userInfo },
     } = getState();
     try {
-    const { data } = Axios.put(
+    const { data } = await Axios.put(
         `https://sahayata-mern-stack.herokuapp.com/api/requests/${orderId}/deliver`,
-        {},
-        {
-        headers: { Authorization: `Bearer ${userInfo.token}` },
-        }
-    );
-    dispatch({ type: ORDER_DELIVER_SUCCESS, payload: data });
+        {},{headers: { Authorization: `Bearer ${userInfo.token}` },}
+        );
+        dispatch({ type: ORDER_DELIVER_SUCCESS, payload: data });
     } catch (error) {
     const message =
         error.response && error.response.data.message

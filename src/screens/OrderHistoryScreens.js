@@ -31,7 +31,7 @@ export default function OrderHistoryScreens(props) {
                             <tr key={order._id}>
                                 <td>{order._id}</td>
                                 <td>{order.createdAt.substring(0,10)}</td>
-                                <td>{order.isDelivered ? order.deletedAt.substring(0,10) : 'No'}</td>
+                                <td>{order.isDelivered ? order.deliveredAt.substring(0,10) : 'No'}</td>
                                 <td>
                                     <button type="button" className="small" 
                                     onClick = {() => {props.history.push(`/request/${order._id}`)}}>Details</button>

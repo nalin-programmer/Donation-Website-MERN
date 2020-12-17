@@ -23,14 +23,19 @@ export default function OrderScreen(props) {
     const dispatch = useDispatch();
     useEffect(() => {
         console.log("OrderScreen UseEffect")
-        dispatch(detailsOrder(orderId));
-        if (!order ||successDeliver ||(order && order._id !== orderId)){
+        // dispatch(detailsOrder(orderId));
+        if (!order|| successDeliver  ||(order && order._id !== orderId)){
             dispatch({ type: ORDER_DELIVER_RESET });
-        } 
+            dispatch(detailsOrder(orderId));
+        }
+        console.log("successDeliver: "+ successDeliver + " order: " + order);
+
         
     },[dispatch,orderId,order,successDeliver]);
     const deliverHandler = () => {
         dispatch(deliverOrder(order._id));
+        // dispatch({ type: ORDER_DELIVER_RESET });
+        props.history.push('/requestlist');
     };
     return loading ? (
         <LoadingBox></LoadingBox>
