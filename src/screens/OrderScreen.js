@@ -15,7 +15,7 @@ export default function OrderScreen(props) {
     const {order, loading, error} = orderDetails;
     
     const orderDeliver = useSelector((state) => state.orderDeliver);
-    const {loading: loadingDeliver,error: errorDeliver,success: successDeliver,} = orderDeliver;
+    const {loading: loadingDeliver,error: errorDeliver,success: successDeliver} = orderDeliver;
 
     const userSignin = useSelector((state) => state.userSignin);
     const { userInfo } = userSignin;
@@ -24,9 +24,10 @@ export default function OrderScreen(props) {
     useEffect(() => {
         console.log("OrderScreen UseEffect")
         dispatch(detailsOrder(orderId));
-        if (!order){
+        if (!order ||successDeliver ||(order && order._id !== orderId)){
             dispatch({ type: ORDER_DELIVER_RESET });
-        }
+        } 
+        
     },[dispatch,orderId,order,successDeliver]);
     const deliverHandler = () => {
         dispatch(deliverOrder(order._id));
@@ -91,11 +92,11 @@ export default function OrderScreen(props) {
                                     <div>{order.orderItems.reduce((a,c) => a+c.qty, 0)}</div>
                                 </div>
                             </li>
-                            { !order.isDelivered && (
+                            { !order.isDelivered && userInfo.isAdmin && (
                                 <li>
                                 {loadingDeliver && <LoadingBox></LoadingBox>}
                                 {errorDeliver && (<MessageBox variant="danger">{errorDeliver}</MessageBox>)}
-                                <button type="button" className="primary block" onClick={deliverHandler}>Deliver Order</button>
+                                <button type="button" className="primary block" onClick={deliverHandler}>Accept Request</button>
                                 </li>
                             )}
                         </ul>

@@ -1,7 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
-import { isAuth } from '../utils.js';
+import { isAdmin, isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
 orderRouter.get('/mine',isAuth,expressAsyncHandler(async (req,res) => {
@@ -25,13 +25,13 @@ orderRouter.post('/',
 })
 );
 
-orderRouter.get('/',isAuth,expressAsyncHandler(async (req, res) => {
+orderRouter.get('/',isAuth,isAdmin ,expressAsyncHandler(async (req, res) => {
     const orders = await Order.find({}).populate('user', 'name');
     res.send(orders);
     })
 );
 
-orderRouter.get('/:id', isAuth, expressAsyncHandler(async (req, res) =>{
+orderRouter.get('/:id', isAuth,expressAsyncHandler(async (req, res) =>{
     const order = await Order.findById(req.params.id);
     if(order){
         res.send(order);
@@ -52,7 +52,7 @@ orderRouter.put('/:id/requested',isAuth,expressAsyncHandler(async(req, res) => {
     
 }));
 
-orderRouter.delete('/:id',isAuth,expressAsyncHandler(async (req, res) => {
+orderRouter.delete('/:id',isAuth,isAdmin,expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {
         const deleteOrder = await order.remove();
@@ -62,7 +62,7 @@ orderRouter.delete('/:id',isAuth,expressAsyncHandler(async (req, res) => {
     }
     })
 );
-orderRouter.put('/:id/deliver',isAuth,expressAsyncHandler(async (req, res) => {
+orderRouter.put('/:id/deliver',isAuth, isAdmin,expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {
         order.isDelivered = true;
