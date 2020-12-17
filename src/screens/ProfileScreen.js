@@ -38,7 +38,7 @@ export default function ProfileScreen() {
             setAddress(user.address);
         }
 
-        if (user.seller) {
+        if (user.isSeller) {
             setSellerName(user.seller.name);
             setSellerLogo(user.seller.logo);
             setSellerDescription(user.seller.description);

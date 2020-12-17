@@ -47,7 +47,7 @@ const submitHandler = (e) => {
 };
 return (
     <div>
-    <form className="form" onSubmit={submitHandler}>
+    <form className="form signin" onSubmit={submitHandler}>
         <div>
         <h1>Edit User {name}</h1>
         {loadingUpdate && <LoadingBox></LoadingBox>}
@@ -82,7 +82,7 @@ return (
             ></input>
             </div>
             <div>
-            <label htmlFor="isSeller">Is Seller</label>
+            <label htmlFor="isSeller">Is Donar</label>
             <input
                 id="isSeller"
                 type="checkbox"
