@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
-// Write mogoDB database connection url in place of DATABASE_NAME
+// Write mogoDB database connection url in place of DATABASE_URL
 mongoose.connect(DATABASE_URL,
     {useNewUrlParser: true, 
     useUnifiedTopology: true,
